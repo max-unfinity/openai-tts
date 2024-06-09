@@ -1,6 +1,7 @@
 import streamlit as st
 from openai import OpenAI
 from dotenv import load_dotenv
+import os
 
 
 voices = ["alloy", "echo", "fable", "onyx", "nova", "shimmer"]
@@ -8,6 +9,8 @@ voices = ["alloy", "echo", "fable", "onyx", "nova", "shimmer"]
 
 @st.cache_resource
 def get_client():
+    if not os.path.exists("output"):
+        os.makedirs("output")
     load_dotenv(".env")
     client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
     return client
