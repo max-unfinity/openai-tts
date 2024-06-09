@@ -9,7 +9,7 @@ voices = ["alloy", "echo", "fable", "onyx", "nova", "shimmer"]
 @st.cache_resource
 def get_client():
     load_dotenv(".env")
-    client = OpenAI()
+    client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
     return client
 
 input_text = st.text_area("Input text")
