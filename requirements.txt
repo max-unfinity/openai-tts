@@ -1,4 +1,4 @@
 openai==1.33.0
 streamlit==1.35.0
 plotly
-dotenv
+python-dotenv
